@@ -1,0 +1,8 @@
+
+summary: 根据文字宽度设置按钮宽度
+	文字GameObject添加ContentSizeFitter组件，并设置HorizontalFit为PreferredSize，(Text组件Paragraph.HorizontalOverflow选择Wrap)
+	通过gameObject.GetComponent<Text>().preferredWidth可以获得当前文字宽度，将按钮所在的GameObject设置为该宽度加固定值即可
+
+
+summary: 将UI.Image图片置灰
+	在Project窗口创建Material，将相应shader文件拖给该Material，再将该Material赋值给Image组件相应变量即可
