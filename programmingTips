@@ -6,3 +6,4 @@ summary: 根据文字宽度设置按钮宽度
 
 summary: 将UI.Image图片置灰
 	在Project窗口创建Material，将相应shader文件拖给该Material，再将该Material赋值给Image组件相应变量即可
+	或者使用相应的shader文件创建材质赋值给要置灰的图片
