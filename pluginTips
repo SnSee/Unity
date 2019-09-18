@@ -1,0 +1,8 @@
+
+VSCode:
+	如果使用vscode进行开发，需要在untiy的Editor目录下添加脚本VsCode.cs，下载地址：https://github.com/dotBunny/VSCode
+	脚本位置: ./scripts/VSCode.cs
+	VSCode插件：
+		通用: Vim, Linux Themes for VS Code
+		C#: C#
+		Unity: Unity Tools, Debugger for Unity
