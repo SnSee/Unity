@@ -1,0 +1,16 @@
+
+1.获取Text组件的字符串的宽度
+private float GetTextWidth(Text text)
+    {
+        float totalWidth = 0f;
+        Font myFont = text.font;
+        myFont.RequestCharactersInTexture(text.text, text.fontSize, text.fontStyle);
+        CharacterInfo characterInfo;
+        char[] arr = text.text.ToCharArray();
+        for(int i = 0; i < arr.Length; ++i)
+        {
+            myFont.GetCharacterInfo(arr[i], out characterInfo, text.fontSize);
+            totalWidth += characterInfo.advance;
+        }
+        return totalWidth;
+    }
