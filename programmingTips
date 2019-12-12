@@ -10,3 +10,21 @@ summary: 将UI.Image图片置灰
 
 summary: 弧形文字
 	脚本:./script.ArcText.cs
+
+summary: 刮开图层
+	在需要被刮开的节点(需要添加RawImage组件)的父节点添加EraseMask组件，并将其赋值给UiTex属性
+
+summary: 无限滚动列表(EnhancedScroller)
+	1.在一个继承自MonoBehaviour的脚本(假设叫BaseView.cs)中继承IEnhancedScrollerDelegate接口并实现相应的方法，将该脚本挂到列表的某一个祖先节点上
+		GetNumberOfCells: 列表节点的数量
+		GetCellViewSize: 列表节点的高度
+		GetCellView: 
+	2.在祖先节点下创建一个空物体用作列表的父节点，为该父节点添加ScrollRect和EnhancedScroller组件(如果需要设置可见区域，则添加Mask组件并取消ShowMaskGraphic的勾选),
+	3.创建单个列表节点预制体(假设叫itemPrefab)
+	4.创建单个列表节点预制体控制脚本(ItemView)，该脚本继承自EnhancedScrollerCellView，将该脚本挂到3中的节点预制体上
+	5.在BaseView中加载itemPrefab并获取EnhancedScrollerCellView组件，赋值给一个变量进行存储(假设叫cellView)
+	6.在GetCellView方法中使用
+		ItemView cellView = scroller.GetCellView(cellView) as ItemView;
+		获取我们在4中自己创建的组件对象，通过该对象就可以对列表节点进行修改了
+	7.在Awake中获取2中的EnhancedScroller组件并存储到变量(假设加itemScroller)，并设置itemScroller.Delegate=this，在OnEnable方法中调用itemScroller.ReloadData()刷新列表数据
+	注意事项：为保证itemPrefab加载成功，需要在ReloadData()前使用协程加载预制体并存储或者进行预加载，确保加载成功后再进行赋值

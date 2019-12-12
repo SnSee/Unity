@@ -6,3 +6,5 @@ VSCode:
 		通用: Vim, Linux Themes for VS Code
 		C#: C#
 		Unity: Unity Tools, Debugger for Unity
+
+	使用vscode调试unity脚本：在unity中打开首选项，选择vscode标签，点击安装debugger工具，回到vscode，切换到调试窗口，左上角开始调试三角形按钮旁边选择Unity Editor，在脚本中每行左侧行数旁边左键设置断点，然后点击绿色的调式按钮,然后回到unity启动，就会在断点处停下
